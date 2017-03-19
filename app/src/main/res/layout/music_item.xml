@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/trackBackground"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/activatedBackgroundIndicator">
+    <!--style="@style/activated"-->
+
+    <LinearLayout
+        style="@style/activated"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            app:riv_oval="true"
+            android:id="@+id/trackImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_album_white_48dp"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="16dp">
+
+            <TextView
+                android:id="@+id/soundName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="18sp"
+                android:text="Qwerty"
+                android:gravity="left"
+                android:layout_gravity="top"
+                />
+            <TextView
+                android:id="@+id/soundArtist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="14sp"
+                android:text="Qwerty"
+                android:gravity="left"
+                />
+
+            <TextView
+                android:id="@+id/soundDuration"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="12sp"
+                android:text="Qwerty"
+                android:gravity="right"
+                android:layout_gravity="bottom"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

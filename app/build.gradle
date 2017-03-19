@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'me.minkyu.teaspoon'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'my_key'
+            keyPassword '21041996'
+            storeFile file('/home/maximka/keys/android.jks')
+            storePassword '21041996'
+        }
+    }
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+    defaultConfig {
+        applicationId "com.newsapp.maximka.newsapp"
+        minSdkVersion 19
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+    externalNativeBuild {
+        cmake {
+            path 'CMakeLists.txt'
+        }
+    }
+}
+
+greendao {
+    schemaVersion 4
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.android.support:design:24.2.1'
+    testCompile 'junit:junit:4.12'
+    compile 'com.github.hotchemi:permissionsdispatcher:2.2.0'
+    apt 'com.github.hotchemi:permissionsdispatcher-processor:2.2.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'org.jsoup:jsoup:1.9.2'
+    compile 'com.vincentbrison.openlibraries.android:dualcache:3.0.0'
+    compile 'com.vincentbrison.openlibraries.android:dualcache-jsonserializer:3.0.0'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'org.neotech.library:android-retainable-tasks:0.2.5'
+    compile 'me.zhanghai.android.materialprogressbar:library:1.2.0'
+    compile 'com.afollestad.material-dialogs:core:0.9.0.2'
+    compile 'com.crazyhitty.chdev.ks:rss-manager:0.23@aar'
+
+    compile 'com.android.support:cardview-v7:24.0.0'
+    compile 'com.android.support:recyclerview-v7:24.0.0'
+
+    compile 'com.makeramen:roundedimageview:2.2.1'
+
+    compile 'org.greenrobot:greendao:3.2.0'
+
+    compile 'com.github.ksoichiro:android-observablescrollview:1.6.0'
+
+    compile 'com.squareup:seismic:1.0.2'
+
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.google.code.gson:gson:2.8.0'
+}
